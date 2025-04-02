@@ -1,0 +1,16 @@
+# AI Chat Frontend
+
+A simple web interface for interacting with an AI chatbot.
+
+## Features
+- Ask AI questions and get responses.
+- Saves Q&A in `localStorage`.
+- Displays the latest responses at the top.
+
+## Usage
+1. Open `index.html` in a browser.
+2. Enter a question and submit.
+3. Previous Q&A will be displayed in a scrollable box.
+
+## Technologies
+- HTML, CSS, JavaScript

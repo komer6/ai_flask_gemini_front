@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+#qa-container {
+    margin-top: 20px;
+    height: 66vh; /* Set a fixed height */
+    overflow-y: scroll; /* Enable vertical scrolling */
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.qa-item {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+}
+
+.qa-item span {
+    font-weight: bold;
+}
