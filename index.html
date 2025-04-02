@@ -7,7 +7,6 @@
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="https://raw.githubusercontent.com/komer6/ai_flask_gemini_front/refs/heads/main/media/aifav.png" type="image/png">
-
 </head>
 <body>
 
@@ -19,6 +18,9 @@
         <button type="submit">Ask</button>
     </form>
 
+    <!-- Button to delete all Q&A -->
+    <button id="deleteAllBtn">Delete All Chat</button>
+
     <div id="qa-container">
         <!-- Stored Q&A will be displayed here -->
     </div>
@@ -29,14 +31,24 @@
             const storedQAs = JSON.parse(localStorage.getItem("qaData")) || [];
             const qaContainer = document.getElementById("qa-container");
             qaContainer.innerHTML = ''; // Clear existing Q&A display
-            storedQAs.forEach(qa => {
+            storedQAs.forEach((qa, index) => {
                 const qaItem = document.createElement("div");
                 qaItem.classList.add("qa-item");
                 qaItem.innerHTML = `
                     <p><span>Question:</span> ${qa.question}</p>
                     <p><span>Answer:</span> ${qa.answer}</p>
+                    <button class="delete-btn" data-index="${index}">Delete</button>
                 `;
                 qaContainer.appendChild(qaItem); // Appends Q&A at the bottom
+            });
+
+            // Attach delete buttons for each Q&A item
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const index = e.target.getAttribute('data-index');
+                    deleteQA(index);
+                });
             });
         }
 
@@ -70,6 +82,20 @@
                 // Reload the Q&A section
                 loadQAs();
             }
+        });
+
+        // Delete specific Q&A by index
+        function deleteQA(index) {
+            const storedQAs = JSON.parse(localStorage.getItem("qaData")) || [];
+            storedQAs.splice(index, 1); // Remove the Q&A at the specified index
+            localStorage.setItem("qaData", JSON.stringify(storedQAs));
+            loadQAs(); // Reload the Q&A section after deletion
+        }
+
+        // Delete all Q&A
+        document.getElementById("deleteAllBtn").addEventListener('click', () => {
+            localStorage.removeItem("qaData");
+            loadQAs(); // Reload the Q&A section after deleting all
         });
 
         // Load previously stored Q&A on page load

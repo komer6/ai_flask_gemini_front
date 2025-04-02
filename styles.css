@@ -1,6 +1,64 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
     padding: 20px;
+    background-color: #f4f4f4; /* Light background for the page */
+    color: #333; /* Darker text for better readability */
+}
+
+h1 {
+    text-align: center;
+    color: #007BFF; /* Blue color for the heading */
+    margin-bottom: 20px;
+}
+
+#questionForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#userInput {
+    padding: 10px;
+    font-size: 16px;
+    width: 60%;
+    margin-right: 10px;
+    border: 1px solid #007BFF; /* Blue border */
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #fff; /* White background for input */
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#deleteAllBtn {
+    padding: 10px 20px;
+    background-color: #f44336; /* Red color for delete all button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 20px auto; /* Centering the button */
+}
+
+#deleteAllBtn:hover {
+    background-color: #d32f2f; /* Darker red on hover */
 }
 
 #qa-container {
@@ -9,15 +67,48 @@ body {
     overflow-y: scroll; /* Enable vertical scrolling */
     border: 1px solid #ddd;
     padding: 10px;
-    background-color: #f9f9f9;
+    background-color: #fff;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for a 3D effect */
 }
 
 .qa-item {
-    padding: 10px;
+    padding: 15px;
     margin: 10px 0;
     border: 1px solid #ddd;
+    border-radius: 8px; /* Rounded corners for individual items */
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.qa-item:hover {
+    background-color: #f1f1f1; /* Slightly darker background on hover */
 }
 
 .qa-item span {
     font-weight: bold;
+    color: #333; /* Dark text for labels */
+}
+
+.qa-item p {
+    margin: 5px 0;
+}
+
+.delete-btn {
+    background-color: #f44336; /* Red color for delete button */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+button:focus, .delete-btn:focus, #deleteAllBtn:focus {
+    outline: none; /* Remove focus outline */
 }
